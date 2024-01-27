@@ -8,11 +8,21 @@ public class Movement : MonoBehaviour
     public float jumpForce = 5.0f;
 
     bool onGround = true;
+
+    Animator animator;
+    void Start() {
+        animator = GetComponentInChildren<Animator>();
+    }
     
     void FixedUpdate()
     {
         Vector3 movementDir = Vector3.ClampMagnitude(transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal"), 1.0f);
         GetComponent<Rigidbody>().velocity = new Vector3((movementDir * speed).x, GetComponent<Rigidbody>().velocity.y, (movementDir * speed).z);
+
+        animator.SetFloat("HorizontalSpeed", Input.GetAxis("Horizontal"));
+        animator.SetFloat("VerticalSpeed", Input.GetAxis("Vertical"));
+        animator.SetBool("Resting", new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).magnitude < 0.1f);
+
         /*RaycastHit hit;
         if (Physics.Raycast(transform.position + movementDir * 0.4f, Vector3.down, out hit, 0.4f)) {
             transform.position = (new Vector3(transform.position.x, hit.point.y, transform.position.z));
