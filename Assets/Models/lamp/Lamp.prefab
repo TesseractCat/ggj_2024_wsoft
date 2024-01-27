@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8457646748020931153}
   - component: {fileID: 8457646748020931154}
+  - component: {fileID: 1651381915}
   m_Layer: 0
   m_Name: Lamp
   m_TagString: Untagged
@@ -45,13 +46,13 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.90386987, b: 0.71132076, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 0.95
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -95,6 +96,18 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!122 &1651381915
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457646748020931152}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4290111231
+  m_Size: 0.38
 --- !u!1001 &8457646748661088117
 PrefabInstance:
   m_ObjectHideFlags: 0
