@@ -16,12 +16,12 @@ public class Movement : MonoBehaviour
     
     void FixedUpdate()
     {
-        Vector3 movementDir = Vector3.ClampMagnitude(transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal"), 1.0f);
+        Vector3 movementDir = Vector3.ClampMagnitude(transform.forward * Input.GetAxis("MoveY P1") + transform.right * Input.GetAxis("MoveX P1"), 1.0f);
         GetComponent<Rigidbody>().velocity = new Vector3((movementDir * speed).x, GetComponent<Rigidbody>().velocity.y, (movementDir * speed).z);
 
-        animator.SetFloat("HorizontalSpeed", Input.GetAxis("Horizontal"));
-        animator.SetFloat("VerticalSpeed", Input.GetAxis("Vertical"));
-        animator.SetBool("Resting", new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).magnitude < 0.1f);
+        animator.SetFloat("HorizontalSpeed", Input.GetAxis("MoveX P1"));
+        animator.SetFloat("VerticalSpeed", Input.GetAxis("MoveY P1"));
+        animator.SetBool("Resting", new Vector2(Input.GetAxis("MoveX P1"), Input.GetAxis("MoveY P1")).magnitude < 0.1f);
 
         /*RaycastHit hit;
         if (Physics.Raycast(transform.position + movementDir * 0.4f, Vector3.down, out hit, 0.4f)) {

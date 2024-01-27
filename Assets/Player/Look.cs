@@ -32,8 +32,8 @@ public class Look : MonoBehaviour
             Cursor.visible = false;
         }
         
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        float mouseX = Input.GetAxis("LookX P1");
+        float mouseY = Input.GetAxis("LookY P1");
         
         transform.Rotate(-mouseY * baseSensitivity, 0, 0);
         body.Rotate(0, mouseX * baseSensitivity, 0);

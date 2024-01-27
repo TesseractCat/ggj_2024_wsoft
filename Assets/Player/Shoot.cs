@@ -17,15 +17,15 @@ public class Shoot : MonoBehaviour
 
     void Update()
     {
-        Vector3 targetPos = Input.GetMouseButton(0) ? cameraOriginalPos + new Vector3(0, 0, 0.3f) : cameraOriginalPos;
+        Vector3 targetPos = Input.GetButton("Bend P1") ? cameraOriginalPos + new Vector3(0, 0, 0.3f) : cameraOriginalPos;
         camera.transform.localPosition = Vector3.Lerp(
             camera.transform.localPosition,
             targetPos,
             Time.deltaTime * 5f
         );
 
-        animator.SetBool("Shooting", Input.GetMouseButton(0));
-        if (Input.GetMouseButtonDown(1))
+        animator.SetBool("Shooting", Input.GetButton("Bend P1"));
+        if (Input.GetButtonDown("Shoot P1"))
             animator.SetTrigger("Shoot");
     }
 }
