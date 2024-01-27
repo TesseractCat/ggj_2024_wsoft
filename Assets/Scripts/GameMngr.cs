@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameMngr : MonoBehaviour
 {
+    public GameObject ball_prefab;
+
     // humors that are allowed to collide
     public string humor1;
     public string humor2;
@@ -24,17 +26,36 @@ public class GameMngr : MonoBehaviour
 
     GameObject[] balls;
 
+    public List<Material> materials;
+
     void Start()
     {
         ChangeCombos();
         player1score = 100;
         player2score = 100;
         turnTaken = false;
+        //spawn two balls of each humor initially
+        for (int i = 0; i < 2; i++)
+        {
+            SpawnBall("yellow", new Vector3(Random.Range(-0.5f, 0.5f), 1.16f, Random.Range(-0.5f, 0.5f)));
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            SpawnBall("black", new Vector3(Random.Range(-0.5f, 0.5f), 1.16f, Random.Range(-0.5f, 0.5f)));
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            SpawnBall("red", new Vector3(Random.Range(-0.5f, 0.5f), 1.16f, Random.Range(-0.5f, 0.5f)));
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            SpawnBall("blue", new Vector3(Random.Range(-0.5f, 0.5f), 1.16f, Random.Range(-0.5f, 0.5f)));
+        }
     }
 
     void Update()
     {
-        CheckBalls(); //check if balls are still moving
+        //CheckBalls(); //check if balls are still moving
         if (turnTaken)
         {
             //TODO: disable cue mvmt, etc
@@ -95,6 +116,30 @@ public class GameMngr : MonoBehaviour
                 turn = 0;
             }
             StartRound();
+        }
+    }
+
+    public void SpawnBall(string id, Vector3 pos)
+    {
+        GameObject ball = Instantiate(ball_prefab, pos, Quaternion.identity);
+        ball.GetComponent<Ball>().ball_id = id;
+        switch (id)
+        {
+            case "yellow":
+                ball.GetComponent<Ball>().ball_material = materials[0];
+                break;
+            case "black":
+                ball.GetComponent<Ball>().ball_material = materials[1];
+                break;
+            case "red":
+                ball.GetComponent<Ball>().ball_material = materials[2];
+                break;
+            case "blue":
+                ball.GetComponent<Ball>().ball_material = materials[3];
+                break;
+            case "death":
+                ball.GetComponent<Ball>().ball_material = materials[4];
+                break;
         }
     }
 

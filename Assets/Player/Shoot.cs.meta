@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 84b7c20aace1eb54f8c4da6a27589beb
+=======
+guid: a77ba2157c4ffd745972a5b32c5ff923
+>>>>>>> origin/sc-gameplay
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
