@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Look : MonoBehaviour
 {
+    public string controller;
+
     public int clampMin;
     public int clampMax;
     
@@ -32,8 +34,8 @@ public class Look : MonoBehaviour
             Cursor.visible = false;
         }
         
-        float mouseX = Input.GetAxis("LookX P1");
-        float mouseY = Input.GetAxis("LookY P1");
+        float mouseX = Input.GetAxis($"LookX {controller}");
+        float mouseY = Input.GetAxis($"LookY {controller}");
         
         transform.Rotate(-mouseY * baseSensitivity, 0, 0);
         body.Rotate(0, mouseX * baseSensitivity, 0);

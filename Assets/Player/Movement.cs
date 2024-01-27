@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public string controller;
+
     public float speed = 1.0f;
     public float jumpForce = 5.0f;
 
@@ -16,12 +18,13 @@ public class Movement : MonoBehaviour
     
     void FixedUpdate()
     {
-        Vector3 movementDir = Vector3.ClampMagnitude(transform.forward * Input.GetAxis("MoveY P1") + transform.right * Input.GetAxis("MoveX P1"), 1.0f);
+        Vector2 controllerInput = new Vector2(Input.GetAxis($"MoveX {controller}"), Input.GetAxis($"MoveY {controller}"));
+        Vector3 movementDir = Vector3.ClampMagnitude(transform.forward * controllerInput.y + transform.right * controllerInput.x, 1.0f);
         GetComponent<Rigidbody>().velocity = new Vector3((movementDir * speed).x, GetComponent<Rigidbody>().velocity.y, (movementDir * speed).z);
 
-        animator.SetFloat("HorizontalSpeed", Input.GetAxis("MoveX P1"));
-        animator.SetFloat("VerticalSpeed", Input.GetAxis("MoveY P1"));
-        animator.SetBool("Resting", new Vector2(Input.GetAxis("MoveX P1"), Input.GetAxis("MoveY P1")).magnitude < 0.1f);
+        animator.SetFloat("HorizontalSpeed", controllerInput.x);
+        animator.SetFloat("VerticalSpeed", controllerInput.y);
+        animator.SetBool("Resting", controllerInput.magnitude < 0.1f);
 
         /*RaycastHit hit;
         if (Physics.Raycast(transform.position + movementDir * 0.4f, Vector3.down, out hit, 0.4f)) {

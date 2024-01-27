@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8591406746098132547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.6, z: 0}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722f263d0f9728548af1014cbb2e160f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: P1
   clampMin: -70
   clampMax: 70
   baseSensitivity: 1
@@ -112,6 +113,7 @@ GameObject:
   - component: {fileID: 8591406746662207833}
   - component: {fileID: 8591406746662207838}
   - component: {fileID: 8591406746662207839}
+  - component: {fileID: 1545558236204924161}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -149,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785f151327bdead4aa2af87d224c45da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: P1
   speed: 1.5
   jumpForce: 0
 --- !u!54 &8591406746662207839
@@ -167,6 +170,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1545558236204924161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8591406746662207832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b7c20aace1eb54f8c4da6a27589beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: P1
+  camera: {fileID: 8591406746098132550}
 --- !u!1 &8591406747675950587
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,6 +445,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f92fea4689fc51842adb2c3c2f32be0b, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 7322da2cbfbc5d94d8449033b19bee4a, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5966074166800511893, guid: 7322da2cbfbc5d94d8449033b19bee4a, type: 3}
       propertyPath: m_Layer
       value: 6

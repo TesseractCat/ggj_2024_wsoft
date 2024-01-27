@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    public string controller;
     public Transform camera;
 
     Animator animator;
