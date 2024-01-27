@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour
 {
     public string ball_id;
     public Material ball_material;
+    public GameObject gameMngr;
     
     //constructor
     public Ball (string id_in, Material material_in)
@@ -21,6 +22,12 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.GetComponent<Ball>().ball_id.Equals("death")) //destroy ball if collides with death ball
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+
     }
 }
