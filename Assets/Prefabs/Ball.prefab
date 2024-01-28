@@ -243,7 +243,7 @@ MonoBehaviour:
   ball_id: 
   ballSource: {fileID: 7927696307545393451}
   clink: {fileID: 8300000, guid: ebe190ace1fc5a641a0d5bd6c8ca3573, type: 3}
-  bigClink: {fileID: 8300000, guid: ee01ee67e04edc242b9676137e872234, type: 3}
+  bigClink: {fileID: 8300000, guid: ebe190ace1fc5a641a0d5bd6c8ca3573, type: 3}
   ball_material: {fileID: 0}
   gameMngr: {fileID: 0}
   isHit: 0
