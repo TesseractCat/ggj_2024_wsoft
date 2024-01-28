@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
     public string ball_id;
     public AudioSource ballSource;
     public AudioClip clink;
+    public AudioClip bigClink;
     public Material ball_material;
     public GameObject gameMngr;
     public bool isHit = false;
@@ -44,6 +45,10 @@ public class Ball : MonoBehaviour
             Destroy(gameObject);
             return;
         }*/
+        if (collision.gameObject.tag.Equals("Ball"))
+        {
+            ballSource.PlayOneShot(clink);
+        }
         if (collision.gameObject.tag.Equals("Ball") && isHit)
         {
             if (collision.gameObject.GetComponent<Ball>().ball_id.Equals("death")
@@ -63,7 +68,7 @@ public class Ball : MonoBehaviour
                         && (gameObject.GetComponent<Ball>().ball_id.Equals(gameMngr.GetComponent<GameMngr>().humor1)
                         || gameObject.GetComponent<Ball>().ball_id.Equals(gameMngr.GetComponent<GameMngr>().humor2)))
             { //if match is made
-                ballSource.PlayOneShot(clink);
+                ballSource.PlayOneShot(bigClink);
 
                 collision.gameObject.GetComponent<Ball>().isHit = true;
                 Vector3 force = new Vector3((collision.gameObject.transform.position.x - gameObject.transform.position.x),
@@ -92,9 +97,9 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag.Equals("Hole")) //not sure if we need this tbh, the only triggers in the scene are the holes
+        ballSource.PlayOneShot(clink);
+        if (other.gameObject.tag.Equals("Hole")) //not sure if we need this tbh, the only triggers in the scene are the holes
         {
-            ballSource.PlayOneShot(clink);
             if (ball_id.Equals("death"))
             {
                 //TODO: die!1!1! mwahaha

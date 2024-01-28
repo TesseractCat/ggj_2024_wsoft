@@ -179,6 +179,10 @@ public class GameMngr : MonoBehaviour
         }
         player1slider.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 240f * (float)(player1score / 100f));
         player2slider.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 240f * (float)(player2score / 100f));
+        if (player1score == 0 || player2score == 0)
+        {
+            EndGame();
+        }
     }
 
     void UpdateUI()
