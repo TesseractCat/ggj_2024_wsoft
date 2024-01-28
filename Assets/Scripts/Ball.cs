@@ -44,7 +44,6 @@ public class Ball : MonoBehaviour
         }*/
         if (collision.gameObject.tag.Equals("Ball") && isHit)
         {
-            collision.gameObject.GetComponent<Ball>().isHit = true;
             if (collision.gameObject.GetComponent<Ball>().ball_id.Equals("death")
                         || gameObject.GetComponent<Ball>().ball_id.Equals("death")) //if death ball is hit
             {
