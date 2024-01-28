@@ -163,8 +163,8 @@ public class GameMngr : MonoBehaviour
         {
             player1score -= modifier;   // if player2 scores decrease player1 score
         }
-        player1slider.sizeDelta.Set(120, 240f * player1score);
-        player2slider.sizeDelta.Set(120, 240f * player2score);
+        player1slider.sizeDelta.Set(120, 240f * (float)player1score/100f);
+        player2slider.sizeDelta.Set(120, 240f * (float)player2score/100f);
     }
 
     void UpdateUI()
