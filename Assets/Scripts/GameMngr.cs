@@ -238,6 +238,11 @@ public class GameMngr : MonoBehaviour
 
     void EndGame()
     {
+        foreach (Look l in FindObjectsOfType<Look>())
+            l.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         endCanvas.SetActive(true);
         player1.GetComponent<Shoot>().canShoot = false;
         player2.GetComponent<Shoot>().canShoot = false;
