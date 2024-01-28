@@ -94,6 +94,7 @@ public class Ball : MonoBehaviour
             if (ball_id.Equals("death"))
             {
                 //TODO: die!1!1! mwahaha
+                Destroy(gameObject);
             }
             else
             {

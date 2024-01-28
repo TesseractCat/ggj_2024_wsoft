@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameMngr : MonoBehaviour
 {
@@ -28,11 +30,22 @@ public class GameMngr : MonoBehaviour
 
     public List<Material> materials;
 
+    [Header("Players")]
+    public GameObject player1;
+    public GameObject player2;
+
+    [Header("UI Elements")]
+    public TextMeshProUGUI turnText;
+    public Slider player1slider;
+    public Slider player2slider;
+
     void Start()
     {
         ChangeCombos();
         player1score = 100;
         player2score = 100;
+        turn = 0;
+        UpdateUI();
         turnTaken = false;
         //spawn two balls of each humor initially
         for (int i = 0; i < 2; i++)
@@ -55,14 +68,37 @@ public class GameMngr : MonoBehaviour
 
     void Update()
     {
-        //CheckBalls(); //check if balls are still moving
+        if (turn == 0)
+        {
+            if (player1.GetComponent<Shoot>().hasShot)
+            {
+                turnTaken = true;
+                player1.GetComponent<Shoot>().canShoot = false;
+            }
+            else
+            {
+                turnTaken = false;
+                player1.GetComponent<Shoot>().canShoot = true;
+            }
+            player2.GetComponent<Shoot>().canShoot = false;
+        }
+        if (turn == 1)
+        {
+            if (player2.GetComponent<Shoot>().hasShot)
+            {
+                turnTaken = true;
+                player2.GetComponent<Shoot>().canShoot = false;
+            }
+            else
+            {
+                turnTaken = false;
+                player2.GetComponent<Shoot>().canShoot = true;
+            }
+            player1.GetComponent<Shoot>().canShoot = false;
+        }
         if (turnTaken)
         {
-            //TODO: disable cue mvmt, etc
-        }
-        else
-        {
-            //TODO: enable cue mvmt, etc
+            CheckBalls();
         }
     }
 
@@ -93,32 +129,6 @@ public class GameMngr : MonoBehaviour
         lights[combo2].SetActive(true);
     }
 
-    private void CheckBalls()
-    {
-        balls = GameObject.FindGameObjectsWithTag("Ball");
-        for (int i = 0; i < balls.Length; i++)
-        {
-            if (balls[i].GetComponent<Rigidbody>().velocity != new Vector3(0, 0, 0))    //if any of the balls in the scene are in motion then return
-            {
-                turnTaken = true;
-                return;
-            }
-        }
-        if (turnTaken)
-        {
-            turnTaken = false;  //next player has yet to hit a ball
-            if (turn == 0)  //turn transfers to opponent
-            {
-                turn = 1;
-            }
-            else if (turn == 1)
-            {
-                turn = 0;
-            }
-            StartRound();
-        }
-    }
-
     public void SpawnBall(string id, Vector3 pos)
     {
         GameObject ball = Instantiate(ball_prefab, pos, Quaternion.identity);
@@ -143,11 +153,6 @@ public class GameMngr : MonoBehaviour
         }
     }
 
-    public void StartRound()
-    {
-        //TODO: UI stuff
-    }
-
     public void UpdateScore(int modifier)
     {
         if (turn == 0)
@@ -158,5 +163,43 @@ public class GameMngr : MonoBehaviour
         {
             player1score -= modifier;   // if player2 scores decrease player1 score
         }
+        player1slider.value = player1score;
+        player2slider.value = player2score;
+    }
+
+    void UpdateUI()
+    {
+        if (turn == 0)
+        {
+            turnText.text = "Player 1's Turn";
+        }
+        else
+        {
+            turnText.text = "Player 2's Turn";
+        }
+    }
+
+    public void CheckBalls()
+    {
+        balls = GameObject.FindGameObjectsWithTag("Ball");
+        for (int i = 0; i < balls.Length; i++)
+        {
+            if (balls[i].GetComponent<Ball>().isHit)    //if any of the balls in the scene are in motion then return
+            {
+                return;
+            }
+        }
+        turnTaken = false;  //next player has yet to hit a ball
+        player1.GetComponent<Shoot>().hasShot = false;
+        player2.GetComponent<Shoot>().hasShot = false;
+        if (turn == 0)  //turn transfers to opponent
+        {
+            turn = 1;
+        }
+        else if (turn == 1)
+        {
+            turn = 0;
+        }
+        UpdateUI();
     }
 }
