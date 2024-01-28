@@ -32,7 +32,7 @@ public class Ball : MonoBehaviour
         }
         if (!isHit)
         {
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            // gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
     }
 
@@ -51,10 +51,10 @@ public class Ball : MonoBehaviour
             {
                 ballSource.PlayOneShot(clink);
                 collision.gameObject.GetComponent<Ball>().isHit = true;
-                Vector3 force = new Vector3((collision.gameObject.transform.position.x - gameObject.transform.position.x),
-                    (collision.gameObject.transform.position.y - gameObject.transform.position.y),
-                    (collision.gameObject.transform.position.z - gameObject.transform.position.z)).normalized;
-                collision.gameObject.GetComponent<Rigidbody>().velocity = force;
+                // Vector3 force = new Vector3((collision.gameObject.transform.position.x - gameObject.transform.position.x),
+                //     (collision.gameObject.transform.position.y - gameObject.transform.position.y),
+                //     (collision.gameObject.transform.position.z - gameObject.transform.position.z)).normalized;
+                // collision.gameObject.GetComponent<Rigidbody>().velocity = force;
                 return;
             }
 
@@ -66,10 +66,10 @@ public class Ball : MonoBehaviour
                 ballSource.PlayOneShot(clink);
 
                 collision.gameObject.GetComponent<Ball>().isHit = true;
-                Vector3 force = new Vector3((collision.gameObject.transform.position.x - gameObject.transform.position.x),
-                    (collision.gameObject.transform.position.y - gameObject.transform.position.y),
-                    (collision.gameObject.transform.position.z - gameObject.transform.position.z)).normalized;
-                collision.gameObject.GetComponent<Rigidbody>().velocity = force;
+                // Vector3 force = new Vector3((collision.gameObject.transform.position.x - gameObject.transform.position.x),
+                //     (collision.gameObject.transform.position.y - gameObject.transform.position.y),
+                //     (collision.gameObject.transform.position.z - gameObject.transform.position.z)).normalized;
+                // collision.gameObject.GetComponent<Rigidbody>().velocity = force;
             }
 
             else   //if incorrect match is made
