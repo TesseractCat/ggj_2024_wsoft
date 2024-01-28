@@ -30,6 +30,8 @@ public class GameMngr : MonoBehaviour
 
     public List<Material> materials;
 
+    public GameObject endCanvas;
+
     [Header("Players")]
     public GameObject player1;
     public GameObject player2;
@@ -39,8 +41,16 @@ public class GameMngr : MonoBehaviour
     public RectTransform player1slider;
     public RectTransform player2slider;
 
+    [Header("AudioClips")]
+    public AudioSource mainAudioSource;
+    public AudioClip witchLaugh1;
+    public AudioClip witchLaugh2;
+    public AudioClip deathLaugh;
+    public AudioClip endLaugh;
+
     void Start()
     {
+        endCanvas.SetActive(false);
         ChangeCombos();
         player1score = 100;
         player2score = 100;
@@ -149,6 +159,7 @@ public class GameMngr : MonoBehaviour
                 break;
             case "death":
                 ball.GetComponent<Ball>().ball_material = materials[4];
+                ball.GetComponent<Ball>().ballSource.PlayOneShot(deathLaugh);
                 break;
         }
     }
@@ -158,13 +169,15 @@ public class GameMngr : MonoBehaviour
         if (turn == 0)
         {
             player2score -= modifier;   // if player1 scores decrease player2 score
+            mainAudioSource.PlayOneShot(witchLaugh1);
         }
         else if (turn == 1)
         {
             player1score -= modifier;   // if player2 scores decrease player1 score
+            mainAudioSource.PlayOneShot(witchLaugh2);
         }
-        player1slider.sizeDelta.Set(120, 240f * (float)player1score/100f);
-        player2slider.sizeDelta.Set(120, 240f * (float)player2score/100f);
+        player1slider.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 240f * (float)(player1score / 100f));
+        player2slider.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 240f * (float)(player2score / 100f));
     }
 
     void UpdateUI()
@@ -202,5 +215,26 @@ public class GameMngr : MonoBehaviour
         }
         ChangeCombos();
         UpdateUI();
+    }
+
+    public void DeathBall()
+    {
+        if (turn == 0)
+        {
+            player1score = 0;
+        }
+        else
+        {
+            player2score = 0;
+        }
+        EndGame();
+    }
+
+    void EndGame()
+    {
+        endCanvas.SetActive(true);
+        player1.GetComponent<Shoot>().canShoot = false;
+        player2.GetComponent<Shoot>().canShoot = false;
+        mainAudioSource.PlayOneShot(endLaugh);
     }
 }

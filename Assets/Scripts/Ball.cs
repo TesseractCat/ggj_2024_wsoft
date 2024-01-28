@@ -5,6 +5,8 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public string ball_id;
+    public AudioSource ballSource;
+    public AudioClip clink;
     public Material ball_material;
     public GameObject gameMngr;
     public bool isHit = false;
@@ -47,6 +49,7 @@ public class Ball : MonoBehaviour
             if (collision.gameObject.GetComponent<Ball>().ball_id.Equals("death")
                         || gameObject.GetComponent<Ball>().ball_id.Equals("death")) //if death ball is hit
             {
+                ballSource.PlayOneShot(clink);
                 collision.gameObject.GetComponent<Ball>().isHit = true;
                 Vector3 force = new Vector3((collision.gameObject.transform.position.x - gameObject.transform.position.x),
                     (collision.gameObject.transform.position.y - gameObject.transform.position.y),
@@ -60,8 +63,8 @@ public class Ball : MonoBehaviour
                         && (gameObject.GetComponent<Ball>().ball_id.Equals(gameMngr.GetComponent<GameMngr>().humor1)
                         || gameObject.GetComponent<Ball>().ball_id.Equals(gameMngr.GetComponent<GameMngr>().humor2)))
             { //if match is made
-                //Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collision.collider);
-                //gameMngr.GetComponent<GameMngr>().ChangeCombos();   //change correct combination
+                ballSource.PlayOneShot(clink);
+
                 collision.gameObject.GetComponent<Ball>().isHit = true;
                 Vector3 force = new Vector3((collision.gameObject.transform.position.x - gameObject.transform.position.x),
                     (collision.gameObject.transform.position.y - gameObject.transform.position.y),
@@ -93,6 +96,7 @@ public class Ball : MonoBehaviour
             if (ball_id.Equals("death"))
             {
                 //TODO: die!1!1! mwahaha
+                gameMngr.GetComponent<GameMngr>().DeathBall();
                 Destroy(gameObject);
             }
             else
