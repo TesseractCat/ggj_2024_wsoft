@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class GameMngr : MonoBehaviour
 {
@@ -48,6 +49,9 @@ public class GameMngr : MonoBehaviour
     public AudioClip witchLaugh2;
     public AudioClip deathLaugh;
     public AudioClip endLaugh;
+
+    [Header("Events")]
+    public UnityEvent onUpdateScore;
 
     void Start()
     {
@@ -177,6 +181,7 @@ public class GameMngr : MonoBehaviour
             player1score -= modifier;   // if player2 scores decrease player1 score
             mainAudioSource.PlayOneShot(witchLaugh2);
         }
+        onUpdateScore.Invoke();
         player1slider.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 240f * (float)(player1score / 100f));
         player2slider.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 240f * (float)(player2score / 100f));
     }

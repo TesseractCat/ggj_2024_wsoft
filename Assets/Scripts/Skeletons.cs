@@ -20,6 +20,6 @@ public class Skeletons : MonoBehaviour
 
     IEnumerator RandomJump(Animator a) {
         yield return new WaitForSeconds(Random.value * 0.2f);
-        a.Play("Base Layer.Jump", 0, Random.value);
+        a.Play("Base Layer.Jump", 0, 0);
     }
 }
