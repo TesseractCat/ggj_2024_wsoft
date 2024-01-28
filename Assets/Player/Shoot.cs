@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public string controller;
     public Transform playerCamera;
+    public Transform broomTip;
     public float range = 10f;
 
     Animator animator;
@@ -26,20 +27,20 @@ public class Shoot : MonoBehaviour
         );
 
         animator.SetBool("Shooting", Input.GetButton($"Bend {controller}"));
-        // if (Input.GetButtonDown("Shoot P1")) {
-        //     animator.SetTrigger("Shoot");
+        if (Input.GetButtonDown($"Shoot {controller}")) {
+            animator.SetTrigger("Shoot");
 
-        //     Vector3 origin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
-        //     RaycastHit hit;
-        //     if (Physics.Raycast(origin, playerCamera.transform.forward, out hit, range))
-        //     {
-        //         if (hit.transform.gameObject.tag.Equals("Ball"))
-        //         {
-        //             Vector3 force = new Vector3((hit.transform.position.x - origin.x), (hit.transform.position.y - origin.y), (hit.transform.position.z - origin.z)).normalized;
-        //             hit.transform.gameObject.GetComponent<Rigidbody>().velocity = force;
-        //             hit.transform.gameObject.GetComponent<Ball>().isHit = true;
-        //         }
-        //     }
-        // }
+            Vector3 origin = broomTip.position;
+            RaycastHit hit;
+            if (Physics.Raycast(origin, broomTip.transform.forward, out hit, range))
+            {
+                if (hit.transform.gameObject.tag.Equals("Ball"))
+                {
+                    Vector3 force = new Vector3((hit.transform.position.x - origin.x), (hit.transform.position.y - origin.y), (hit.transform.position.z - origin.z)).normalized;
+                    hit.transform.gameObject.GetComponent<Rigidbody>().velocity = force;
+                    hit.transform.gameObject.GetComponent<Ball>().isHit = true;
+                }
+            }
+        }
     }
 }
