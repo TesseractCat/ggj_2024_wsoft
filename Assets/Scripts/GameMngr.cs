@@ -36,8 +36,8 @@ public class GameMngr : MonoBehaviour
 
     [Header("UI Elements")]
     public TextMeshProUGUI turnText;
-    public Slider player1slider;
-    public Slider player2slider;
+    public RectTransform player1slider;
+    public RectTransform player2slider;
 
     void Start()
     {
@@ -163,8 +163,8 @@ public class GameMngr : MonoBehaviour
         {
             player1score -= modifier;   // if player2 scores decrease player1 score
         }
-        player1slider.value = player1score;
-        player2slider.value = player2score;
+        player1slider.sizeDelta.Set(120, 240f * player1score);
+        player2slider.sizeDelta.Set(120, 240f * player2score);
     }
 
     void UpdateUI()
