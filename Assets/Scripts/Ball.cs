@@ -78,6 +78,7 @@ public class Ball : MonoBehaviour
                 Vector3 pos = collision.gameObject.transform.position;
                 Destroy(collision.gameObject);
                 gameMngr.GetComponent<GameMngr>().SpawnBall("death", pos);
+                ballSource.PlayOneShot(clink);
 
                 int newHumor = Random.Range(0, 4);
                 string id = gameMngr.GetComponent<GameMngr>().humors[newHumor];
@@ -93,6 +94,7 @@ public class Ball : MonoBehaviour
     {
         if(other.gameObject.tag.Equals("Hole")) //not sure if we need this tbh, the only triggers in the scene are the holes
         {
+            ballSource.PlayOneShot(clink);
             if (ball_id.Equals("death"))
             {
                 //TODO: die!1!1! mwahaha
@@ -107,5 +109,10 @@ public class Ball : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+    
+    public void PlayClink()
+    {
+        ballSource.PlayOneShot(clink);
     }
 }

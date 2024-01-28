@@ -46,6 +46,7 @@ public class Shoot : MonoBehaviour
                     Vector3 force = new Vector3((hit.transform.position.x - origin.x), (hit.transform.position.y - origin.y), (hit.transform.position.z - origin.z)).normalized;
                     hit.transform.gameObject.GetComponent<Rigidbody>().velocity = force;
                     hit.transform.gameObject.GetComponent<Ball>().isHit = true;
+                    hit.transform.gameObject.GetComponent<Ball>().PlayClink();
                 }
             }
         }

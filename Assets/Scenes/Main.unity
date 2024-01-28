@@ -1231,7 +1231,7 @@ RectTransform:
   m_GameObject: {fileID: 1693867949}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 346012344}
@@ -1281,6 +1281,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693867949}
   m_CullTransparentMesh: 1
+--- !u!1001 &1761611716
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1471463100436408027, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471463100436408027, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471463100436408027, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471463100436408027, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471463100436408027, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471463100436408027, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471463100436408027, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471463100436408027, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471463100436408027, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471463100436408027, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471463100436408027, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471463100436408028, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
+      propertyPath: m_Name
+      value: Skeletons
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb4ebbf36f15a524ea8e1b10998c1aec, type: 3}
 --- !u!1001 &1902453646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1387,16 +1444,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4bae4c72a71021d4a8472a81852a5239, type: 2}
   - {fileID: 2100000, guid: ef3f3280f9d9b8142b0e717b07e30d4a, type: 2}
   endCanvas: {fileID: 1693867949}
+  endText: {fileID: 346012345}
   player1: {fileID: 1086788443}
   player2: {fileID: 358482899}
   turnText: {fileID: 642680707}
   player1slider: {fileID: 488815775}
   player2slider: {fileID: 2120085906}
-  mainAudioSource: {fileID: 0}
-  witchLaugh1: {fileID: 0}
-  witchLaugh2: {fileID: 0}
-  deathLaugh: {fileID: 0}
-  endLaugh: {fileID: 0}
+  mainAudioSource: {fileID: 1128659025}
+  witchLaugh1: {fileID: 8300000, guid: 09cadc2905c0ec742aa4eec0229f2d1d, type: 3}
+  witchLaugh2: {fileID: 8300000, guid: c32af6e561a5aa94abd96c8af68d4335, type: 3}
+  deathLaugh: {fileID: 8300000, guid: 907b55279e4a83f4bb00178918920009, type: 3}
+  endLaugh: {fileID: 8300000, guid: 306b4b80b988b1c41ad40f79be100042, type: 3}
 --- !u!4 &1963392021
 Transform:
   m_ObjectHideFlags: 0

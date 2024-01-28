@@ -31,6 +31,7 @@ public class GameMngr : MonoBehaviour
     public List<Material> materials;
 
     public GameObject endCanvas;
+    public TextMeshProUGUI endText;
 
     [Header("Players")]
     public GameObject player1;
@@ -236,5 +237,13 @@ public class GameMngr : MonoBehaviour
         player1.GetComponent<Shoot>().canShoot = false;
         player2.GetComponent<Shoot>().canShoot = false;
         mainAudioSource.PlayOneShot(endLaugh);
+        if (player1score > player2score)
+        {
+            endText.text = "Player 1 Wins!";
+        }
+        else if (player2score > player1score)
+        {
+            endText.text = "Player 2 Wins!";
+        }
     }
 }

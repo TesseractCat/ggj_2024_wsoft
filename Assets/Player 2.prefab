@@ -79,6 +79,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2799449415492747311, guid: 783527b5325b931449cbba37de409136, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799449415492747311, guid: 783527b5325b931449cbba37de409136, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799449415492747311, guid: 783527b5325b931449cbba37de409136, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799449415492747311, guid: 783527b5325b931449cbba37de409136, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3311690980938872378, guid: 783527b5325b931449cbba37de409136, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -267,6 +283,10 @@ PrefabInstance:
       propertyPath: controller
       value: P2
       objectReference: {fileID: 0}
+    - target: {fileID: 8591406746662207838, guid: 783527b5325b931449cbba37de409136, type: 3}
+      propertyPath: witchAudio
+      value: 
+      objectReference: {fileID: 6637170091557331923}
     - target: {fileID: 8669102161544769899, guid: 783527b5325b931449cbba37de409136, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -289,3 +309,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783527b5325b931449cbba37de409136, type: 3}
+--- !u!1 &6637170091557331923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4261156822066103889, guid: 783527b5325b931449cbba37de409136, type: 3}
+  m_PrefabInstance: {fileID: 7438077989677737346}
+  m_PrefabAsset: {fileID: 0}

@@ -9,6 +9,8 @@ public class Movement : MonoBehaviour
     public float speed = 1.0f;
     public float jumpForce = 5.0f;
 
+    public GameObject witchAudio;
+
     bool onGround = true;
 
     Animator animator;
@@ -25,6 +27,15 @@ public class Movement : MonoBehaviour
         animator.SetFloat("HorizontalSpeed", controllerInput.x);
         animator.SetFloat("VerticalSpeed", controllerInput.y);
         animator.SetBool("Resting", controllerInput.magnitude < 0.1f);
+
+        if (controllerInput.magnitude > 0.1f)
+        {
+            witchAudio.SetActive(true);
+        }
+        else
+        {
+            witchAudio.SetActive(false);
+        }
 
         /*RaycastHit hit;
         if (Physics.Raycast(transform.position + movementDir * 0.4f, Vector3.down, out hit, 0.4f)) {
