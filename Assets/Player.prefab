@@ -55,7 +55,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.05
   far clip plane: 1000
@@ -183,7 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: P1
-  camera: {fileID: 8591406746098132550}
+  playerCamera: {fileID: 8591406746098132550}
+  range: 10
 --- !u!1 &8591406747675950587
 GameObject:
   m_ObjectHideFlags: 0
