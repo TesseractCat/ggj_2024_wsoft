@@ -707,7 +707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1280562566806478210, guid: 11a5f393263fcbc4388fafa69b9c891b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1280562566806478211, guid: 11a5f393263fcbc4388fafa69b9c891b, type: 3}
       propertyPath: m_Color.b
@@ -785,7 +785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1280562566806478210, guid: 11a5f393263fcbc4388fafa69b9c891b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1280562566806478211, guid: 11a5f393263fcbc4388fafa69b9c891b, type: 3}
       propertyPath: m_Color.b
@@ -863,7 +863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1280562566806478210, guid: 11a5f393263fcbc4388fafa69b9c891b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1280562566806478211, guid: 11a5f393263fcbc4388fafa69b9c891b, type: 3}
       propertyPath: m_Color.b
@@ -938,6 +938,10 @@ PrefabInstance:
     - target: {fileID: 1280562566806478210, guid: 11a5f393263fcbc4388fafa69b9c891b, type: 3}
       propertyPath: m_Name
       value: Blue light
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280562566806478210, guid: 11a5f393263fcbc4388fafa69b9c891b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1280562566806478211, guid: 11a5f393263fcbc4388fafa69b9c891b, type: 3}
       propertyPath: m_Color.b

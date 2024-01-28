@@ -8,11 +8,15 @@ public class Shoot : MonoBehaviour
     public Transform playerCamera;
     public Transform broomTip;
     public float range = 10f;
+    public bool canShoot;
+    public bool hasShot;
 
     Animator animator;
     Vector3 cameraOriginalPos;
     void Start()
     {
+        hasShot = false;
+        canShoot = false;
         animator = GetComponentInChildren<Animator>();
         cameraOriginalPos = playerCamera.localPosition;
     }
@@ -27,7 +31,9 @@ public class Shoot : MonoBehaviour
         );
 
         animator.SetBool("Shooting", Input.GetButton($"Bend {controller}"));
-        if (Input.GetButtonDown($"Shoot {controller}")) {
+
+        if (canShoot && Input.GetButtonDown($"Shoot {controller}"))
+        {
             animator.SetTrigger("Shoot");
 
             Vector3 origin = broomTip.position;
@@ -36,6 +42,7 @@ public class Shoot : MonoBehaviour
             {
                 if (hit.transform.gameObject.tag.Equals("Ball"))
                 {
+                    hasShot = true;
                     Vector3 force = new Vector3((hit.transform.position.x - origin.x), (hit.transform.position.y - origin.y), (hit.transform.position.z - origin.z)).normalized;
                     hit.transform.gameObject.GetComponent<Rigidbody>().velocity = force;
                     hit.transform.gameObject.GetComponent<Ball>().isHit = true;
